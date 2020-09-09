@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GuessMyNumber {
 	static int max_num, min_num=1;
 	static Scanner scan = new Scanner(System.in);
-	public static void main(String[] args) 
+	public static void main(String[] args) throws InterruptedException
 	{
 		//Get user input
 		System.out.print("Hello!, What is your name : ");
@@ -14,7 +14,7 @@ public class GuessMyNumber {
 	}
 	
 	//Method covers all other user defined methods
-	public static void difficulty(String name)
+	public static void difficulty(String name) throws InterruptedException
 	{
 		//Get user input to choose difficulty
 		System.out.println("\nChoose difficulty:");
@@ -50,12 +50,13 @@ public class GuessMyNumber {
 	}
 	
 	//Method for guessing number game
-	public static void guessingNumber(String name, int min_num, int max_num) {
+	public static void guessingNumber(String name, int min_num, int max_num) throws InterruptedException
+	{
 		int random_number;
 		//Guessing random integer 
 		System.out.println("\nWell " + name + ", I am thinking of a number between " + min_num + " and " + max_num + "...");
 		random_number = ThreadLocalRandom.current().nextInt(min_num , max_num);
-		
+		Thread.sleep(3000);
 		System.out.println("\nLet's Go...You have only 10 chance to guess my number!");
 
 		//Guess the number 10 times
